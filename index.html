@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Expense Tracker</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body class="font-sans">
@@ -14,7 +18,13 @@
             <div>Good Afternoon</div>
             <div class="font-bold">Samikshya</div>
           </div>
-          <div>Add Entry</div>
+          <div>
+            <button
+              class="bg-gradient-to-r from-blue-400 to-blue-800 text-white p-2 rounded-md"
+            >
+              Add Button
+            </button>
+          </div>
         </div>
         <div
           class="flex justify-evenly gap-72 bg-gradient-to-r from-blue-400 to-blue-800 text-white p-3 rounded-md"
@@ -29,9 +39,23 @@
           </div>
         </div>
 
-        <div class="flex justify-evenly gap-72">
-          <div>transaction</div>
-          <div>view all</div>
+        <div class="flex flex-col gap-2">
+          <div class="flex justify-evenly gap-72 font-bold text-gray-500">
+            <div>Transaction</div>
+            <div>view all</div>
+          </div>
+          <div
+            class="flex justify-evenly gap-72 bg-gradient-to-r from-lime-400 to-lime-500 p-3 rounded-md"
+          >
+            <div><i class="fa fa-arrow-up" aria-hidden="true"></i> food</div>
+            <div>amount</div>
+          </div>
+          <div
+            class="flex justify-evenly gap-72 bg-gradient-to-r from-lime-400 to-lime-500 p-3 rounded-md"
+          >
+            <div><i class="fa fa-arrow-up" aria-hidden="true"></i> food</div>
+            <div>amount</div>
+          </div>
         </div>
       </div>
     </div>
