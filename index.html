@@ -13,9 +13,9 @@
   <body class="font-sans">
     <div class="flex justify-center relative">
       <div
-        class="flex flex-col gap-10 absolute top-32 bg-gradient-to-r from-rose-100 to-teal-100 p-7 w-[40%] rounded-sm"
+        class="shadow-sm flex flex-col gap-10 absolute top-32 bg-gradient-to-r from-rose-100 to-teal-100 p-7 w-[40%] rounded-sm"
       >
-        <div class="flex justify-evenly gap-72">
+        <div class="flex justify-between">
           <div class="flex flex-col">
             <div>Good Afternoon</div>
             <div class="font-bold">Samikshya!</div>
@@ -29,29 +29,30 @@
           </div>
         </div>
         <div
-          class="flex justify-evenly gap-72 bg-gradient-to-r from-blue-400 to-blue-800 text-white p-3 rounded-md"
+          class="flex justify-between bg-gradient-to-r from-purple-400 to-blue-400 text-white p-3 rounded-md"
         >
           <div class="flex flex-col gap-2">
             <div>Total Balance</div>
             <div>amount</div>
           </div>
           <div>
-            <div class="flex justify-between gap-1">
-              <div>
+            <div class="flex gap-1 items-center">
+              <div class="items-center">
                 <i
-                  class="fa fa-arrow-up w-6 bg-green-500 text-center rounded-full p-1"
+                  class="fa fa-arrow-down w-8 bg-white text-center text-green-600 bg-opacity-50 rounded-full p-2 items-center"
                   aria-hidden="true"
                 ></i>
               </div>
+              <!-- bolnai dina, hehe -->
               <div class="flex flex-col">
                 <div>Income</div>
                 <div>$40</div>
               </div>
             </div>
-            <div class="flex justify-between gap-1">
-              <div>
+            <div class="flex gap-1 items-center">
+              <div class="items-center">
                 <i
-                  class="fa fa-arrow-down bg-red-500 text-center rounded-full p-1 w-6"
+                  class="fa fa-arrow-up bg-white text-red-500 text-center rounded-full p-2 w-8 items-center bg-opacity-50"
                   aria-hidden="true"
                 ></i>
               </div>
@@ -64,35 +65,23 @@
         </div>
 
         <div class="flex flex-col gap-2">
-          <div class="flex justify-evenly gap-72 font-bold text-gray-500">
+          <div class="flex justify-between font-bold text-gray-500">
             <div>Transaction</div>
-            <div>view all</div>
+            <div>View all</div>
           </div>
-          <!-- <div
-            class="flex justify-evenly gap-72 bg-gradient-to-r from-lime-400 to-lime-500 p-3 rounded-md"
-          >
-            <div class="font-bold">
-              <i
-                class="fa fa-arrow-up bg-green-800 text-white p-1 rounded-full w-7 text-center border-2"
-                aria-hidden="true"
-              ></i>
-              Food
-            </div>
-            <div>amount</div>
-          </div> -->
           <div
-            class="flex justify-evenly gap-72 bg-gradient-to-r from-lime-400 to-lime-500 p-3 rounded-md"
+            class="flex justify-between items-center bg-gradient-to-r from-lime-400 to-lime-300 p-3 rounded-md"
           >
             <div class="font-bold">
               <i
-                class="fa fa-arrow-up bg-green-800 text-white p-1 rounded-full w-7 text-center border-2"
+                class="fa fa-arrow-down bg-white text-green-500 p-2 rounded-full w-8 text-center bg-opacity-50"
                 aria-hidden="true"
               ></i>
               Food
             </div>
             <div class="flex flex-col">
               <div>$60</div>
-              <div class="text-gray-600 font-bold">Today</div>
+              <div class="text-gray-500 font-bold">Today</div>
             </div>
           </div>
         </div>
