@@ -89,7 +89,7 @@
     </div>
 
     <div
-      class="flex flex-col gap-4 w-72 bg-gradient-to-r from-rose-100 to-teal-100 p-3 rounded-md shadow-lg absolute left-[35em] top-10"
+      class="flex flex-col gap-4 w-80 bg-gradient-to-r from-rose-100 to-teal-100 p-3 rounded-md shadow-lg absolute left-[35em] top-10"
     >
       <div class="flex justify-center">
         <div class="text-2xl">Add Entry</div>
@@ -110,14 +110,40 @@
           class="mt-1 p-1 border rounded-lg w-full outline-gray-300"
         />
       </div>
-      <div class="flex flex-row gap-4 justify-center">
-        <div class="">
-          <input type="radio" id="expense" name="entryType" value="expense" />
-          <label for="expense">Expense</label>
+      <div class="flex justify-around">
+        <div
+          class="w-28 rounded-md flex justify-center p-3 border-2 border-gray-400"
+        >
+          <input
+            class="appearance-none rounded-md"
+            type="radio"
+            id="expense"
+            name="entryType"
+            value="expense"
+          />
+          <label for="expense" class="flex flex-col">
+            <div
+              class="fa fa-arrow-up bg-red-500 text-3xl rounded-full w-fit px-4 py-2 text-white font-bold"
+            ></div>
+            <div>Expenses</div>
+          </label>
         </div>
-        <div>
-          <input type="radio" id="income" name="entryType" value="income" />
-          <label for="income">Income</label>
+        <div
+          class="w-28 rounded-md flex justify-center p-3 border-2 border-gray-400"
+        >
+          <input
+            type="radio"
+            id="income"
+            name="entryType"
+            value="income"
+            class="appearance-none outline-black rounded-md"
+          />
+          <label for="income" class="flex flex-col">
+            <div
+              class="fa fa-arrow-down bg-lime-500 text-3xl rounded-full w-fit px-4 py-2 text-white font-bold"
+            ></div>
+            <div>Income</div>
+          </label>
         </div>
       </div>
       <div class="flex justify-center text-center">
