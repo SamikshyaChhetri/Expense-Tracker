@@ -1,7 +1,5 @@
 const username = document.getElementById("UserName");
-// const userIdfromlocalstorage = localStorage.getItem("userid");
 const usernamefromlocalstorage = localStorage.getItem("Name");
-// console.log(userIdfromlocalstorage);
 username.innerHTML = usernamefromlocalstorage + "!";
 if (username.innerHTML == "null!") {
   window.location.href = "login.html";
@@ -18,7 +16,6 @@ setInterval(() => {
   } else {
     element.innerHTML = "Good Morning";
   }
-  // element.innerHTML = hours + ":" + min;
 }, 1000);
 const addItem = document.getElementById("addItem");
 const addItembtn = document.getElementById("addItemBtn");
