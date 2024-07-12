@@ -88,20 +88,20 @@
       </div>
     </div>
     <div
-      class="flex flex-col gap-4 w-72 bg-gradient-to-r from-lime-400 to-lime-300 p-3 rounded-md shadow-lg"
+      class="flex flex-col gap-4 w-72 bg-gradient-to-r from-rose-100 to-teal-100 p-3 rounded-md shadow-lg"
     >
       <div class="flex justify-center">
         <div class="text-2xl">Add Entry</div>
       </div>
-      <div class="flex flex-col">
-        <label for="title">Title</label>
+      <div class="flex flex-col relative gap-4">
+        <label for="title" class="absolute -top-1.5 left-1">Title</label>
         <input
           type="text"
           id="title"
           name="title"
           class="mt-1 p-1 border rounded-lg w-full outline-gray-300"
         />
-        <label for="amount">Amount</label>
+        <label for="amount" class="absolute top-12 left-1">Amount</label>
         <input
           type="number"
           id="amount"
@@ -118,6 +118,9 @@
           <input type="radio" id="income" name="entryType" value="income" />
           <label for="income">Income</label>
         </div>
+      </div>
+      <div class="flex justify-center text-center">
+        <div class="bg-sky-300 p-1 rounded-md w-full">Add</div>
       </div>
     </div>
   </body>
