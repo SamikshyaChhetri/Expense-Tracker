@@ -20,3 +20,8 @@ setInterval(() => {
   }
   // element.innerHTML = hours + ":" + min;
 }, 1000);
+const addItembtn = document.getElementById("addItemBtn");
+addItembtn.addEventListener("click", () => {
+  const addItem = document.getElementById("addItem");
+  addItem.classList.replace("-top-96", "top-[3.5em]");
+});
