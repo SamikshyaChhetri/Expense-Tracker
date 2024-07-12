@@ -87,8 +87,38 @@
         </div>
       </div>
     </div>
-    <div>
-      <div>Add Entry</div>
+    <div
+      class="flex flex-col gap-4 w-72 bg-gradient-to-r from-lime-400 to-lime-300 p-3 rounded-md shadow-lg"
+    >
+      <div class="flex justify-center">
+        <div class="text-2xl">Add Entry</div>
+      </div>
+      <div class="flex flex-col">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          class="mt-1 p-1 border rounded-lg w-full outline-gray-300"
+        />
+        <label for="amount">Amount</label>
+        <input
+          type="number"
+          id="amount"
+          name="amount"
+          class="mt-1 p-1 border rounded-lg w-full outline-gray-300"
+        />
+      </div>
+      <div class="flex flex-row gap-4 justify-center">
+        <div class="">
+          <input type="radio" id="expense" name="entryType" value="expense" />
+          <label for="expense">Expense</label>
+        </div>
+        <div>
+          <input type="radio" id="income" name="entryType" value="income" />
+          <label for="income">Income</label>
+        </div>
+      </div>
     </div>
   </body>
   <script src="/js/script.js"></script>
