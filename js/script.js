@@ -42,6 +42,12 @@ add.addEventListener("click", () => {
     Amount: amount,
     Button: buttonType,
   };
-  arr.push(item);
-  localStorage.setItem("items", JSON.stringify(arr));
+  const arrayfromLocalstorage = JSON.parse(localStorage.getItem("items"));
+  if (!arrayfromLocalstorage) {
+    arr.push(item);
+    localStorage.setItem("items", JSON.stringify(arr));
+  } else {
+    arrayfromLocalstorage.push(item);
+    localStorage.setItem("items", JSON.stringify(arrayfromLocalstorage));
+  }
 });
