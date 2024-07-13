@@ -36,7 +36,6 @@ add.addEventListener("click", () => {
     buttonType = "Expense";
   }
   console.log(radioButtonType.checked);
-  // if(radioButtonType.)
   const item = {
     Title: titleName,
     Amount: amount,
