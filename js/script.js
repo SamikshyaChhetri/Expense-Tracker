@@ -17,6 +17,7 @@ setInterval(() => {
     element.innerHTML = "Good Morning";
   }
 }, 1000);
+const arr = [];
 const addItem = document.getElementById("addItem");
 const addItembtn = document.getElementById("addItemBtn");
 addItembtn.addEventListener("click", () => {
@@ -25,4 +26,12 @@ addItembtn.addEventListener("click", () => {
 const add = document.getElementById("add");
 add.addEventListener("click", () => {
   addItem.classList.replace("top-[3.5em]", "-top-96");
+  const titleName = document.getElementById("title").value;
+  const amount = document.getElementById("amount").value;
+  const item = {
+    Title: titleName,
+    Amount: amount,
+  };
+  arr.push(item);
+  localStorage.setItem("items", JSON.stringify(arr));
 });
