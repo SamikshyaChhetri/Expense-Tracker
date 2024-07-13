@@ -32,8 +32,10 @@ add.addEventListener("click", () => {
   let buttonType;
   if (radioButtonType.checked) {
     buttonType = "income";
+    // calculateTotal();
   } else {
     buttonType = "Expense";
+    // calculateTotal();
   }
   console.log(radioButtonType.checked);
   const item = {
@@ -44,9 +46,29 @@ add.addEventListener("click", () => {
   const arrayfromLocalstorage = JSON.parse(localStorage.getItem("items"));
   if (!arrayfromLocalstorage) {
     arr.push(item);
+    calculateTotal();
     localStorage.setItem("items", JSON.stringify(arr));
   } else {
     arrayfromLocalstorage.push(item);
     localStorage.setItem("items", JSON.stringify(arrayfromLocalstorage));
+    calculateTotal();
   }
+  function calculateTotal() {
+    const displayTotal = document.getElementById("Tamount");
+    let totalAmt = 0.0;
+
+    const itemsFromLocalStorage = JSON.parse(localStorage.getItem("items"));
+
+    itemsFromLocalStorage.forEach((element) => {
+      if (element.Button === "income") {
+        totalAmt += parseFloat(element.Amount);
+      } else {
+        totalAmt -= parseFloat(element.Amount);
+      }
+    });
+
+    localStorage.setItem("totalAmount", totalAmt);
+    displayTotal.innerHTML = totalAmt;
+  }
+  calculateTotal();
 });
