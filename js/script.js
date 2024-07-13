@@ -28,9 +28,19 @@ add.addEventListener("click", () => {
   addItem.classList.replace("top-[3.5em]", "-top-96");
   const titleName = document.getElementById("title").value;
   const amount = document.getElementById("amount").value;
+  const radioButtonType = document.getElementById("income");
+  let buttonType;
+  if (radioButtonType.checked) {
+    buttonType = "income";
+  } else {
+    buttonType = "Expense";
+  }
+  console.log(radioButtonType.checked);
+  // if(radioButtonType.)
   const item = {
     Title: titleName,
     Amount: amount,
+    Button: buttonType,
   };
   arr.push(item);
   localStorage.setItem("items", JSON.stringify(arr));
