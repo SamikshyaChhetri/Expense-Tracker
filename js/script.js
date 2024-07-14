@@ -60,6 +60,8 @@ add.addEventListener("click", () => {
 
     itemsFromLocalStorage.forEach((element) => {
       if (element.Button === "income") {
+        // const incomeAmount = document.getElementById("incomeAmount");
+        // incomeAmount += parseFloat(element.Amount);
         totalAmt += parseFloat(element.Amount);
       } else {
         totalAmt -= parseFloat(element.Amount);
@@ -67,7 +69,8 @@ add.addEventListener("click", () => {
     });
 
     localStorage.setItem("totalAmount", totalAmt);
-    displayTotal.innerHTML = totalAmt;
+    const amountFromLS = JSON.parse(localStorage.getItem("totalAmount"));
+    displayTotal.innerHTML = amountFromLS;
   }
   calculateTotal();
 });
