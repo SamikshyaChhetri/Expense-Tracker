@@ -41,6 +41,7 @@ add.addEventListener("click", () => {
     Amount: amount,
     Button: buttonType,
   };
+  window.location.reload();
   const arrayfromLocalstorage = JSON.parse(localStorage.getItem("items"));
   if (!arrayfromLocalstorage) {
     arr.push(item);
@@ -52,12 +53,10 @@ add.addEventListener("click", () => {
     calculateTotal();
   }
   function calculateTotal() {
-    const displayTotal = document.getElementById("Tamount");
     let totalAmt = 0.0;
 
     const itemsFromLocalStorage =
       JSON.parse(localStorage.getItem("items")) || [];
-
     itemsFromLocalStorage.forEach((element) => {
       if (element.Button === "income") {
         // const incomeAmount = document.getElementById("incomeAmount");
@@ -69,8 +68,12 @@ add.addEventListener("click", () => {
     });
 
     localStorage.setItem("totalAmount", totalAmt);
-    const amountFromLS = JSON.parse(localStorage.getItem("totalAmount"));
-    displayTotal.innerHTML = amountFromLS;
   }
   calculateTotal();
 });
+
+const displayTotal = document.getElementById("Tamount");
+const amountFromLS = localStorage.getItem("totalAmount");
+// console.log(amountFromLS);
+
+displayTotal.innerHTML = amountFromLS;
