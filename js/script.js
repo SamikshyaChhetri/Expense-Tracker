@@ -32,8 +32,10 @@ add.addEventListener("click", () => {
   let buttonType;
   if (radioButtonType.checked) {
     buttonType = "income";
+    localStorage.setItem("IncomeAmount", amount);
   } else {
     buttonType = "Expense";
+    localStorage.setItem("ExpenseAmount", amount);
   }
   console.log(radioButtonType.checked);
   const item = {
@@ -75,5 +77,4 @@ add.addEventListener("click", () => {
 const displayTotal = document.getElementById("Tamount");
 const amountFromLS = localStorage.getItem("totalAmount");
 // console.log(amountFromLS);
-
 displayTotal.innerHTML = amountFromLS;
