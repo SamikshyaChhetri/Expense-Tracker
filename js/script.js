@@ -35,6 +35,7 @@ addItembtn.addEventListener("click", () => {
 cancelIcon.addEventListener("click", () => {
   cancelIcon.classList.replace("flex", "hidden");
   addItem.classList.replace("top-[3.5em]", "-top-96");
+  location.reload();
 });
 
 const add = document.getElementById("add");
@@ -63,6 +64,7 @@ add.addEventListener("click", () => {
     // localStorage.setItem("ExpenseAmount", amount);
   } else {
     alert("Select income or expenses");
+    return;
   }
   // console.log(radioButtonType.checked);
   if (!titleName || !amount) {
