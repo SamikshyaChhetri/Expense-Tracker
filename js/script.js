@@ -57,24 +57,30 @@ add.addEventListener("click", () => {
     // localStorage.setItem("ExpenseAmount", amount);
   }
   // console.log(radioButtonType.checked);
-  // Define the item
-  const item = {
-    Title: titleName,
-    Amount: amount,
-    Button: buttonType,
-    Date: fullDate,
-  };
-  // Get the previous items stored in local storage, if doesnot exists set fallback to empty array
-  const arrayfromLocalstorage = JSON.parse(localStorage.getItem("items")) || [];
+  if (!titleName || !amount || !radioButtonType) {
+    alert("Cannot proceed with empty input fields.");
+    return;
+  } else {
+    // Define the item
+    const item = {
+      Title: titleName,
+      Amount: amount,
+      Button: buttonType,
+      Date: fullDate,
+    };
+    // Get the previous items stored in local storage, if doesnot exists set fallback to empty array
+    const arrayfromLocalstorage =
+      JSON.parse(localStorage.getItem("items")) || [];
 
-  // Push tghe current item to the array
-  arrayfromLocalstorage.push(item);
+    // Push tghe current item to the array
+    arrayfromLocalstorage.push(item);
 
-  // replace the old items by new array in local storage
-  localStorage.setItem("items", JSON.stringify(arrayfromLocalstorage));
+    // replace the old items by new array in local storage
+    localStorage.setItem("items", JSON.stringify(arrayfromLocalstorage));
 
-  // Calculate the total amounts
-  calculateTotal();
+    // Calculate the total amounts
+    calculateTotal();
+  }
 });
 
 //function to calculate total amounts
