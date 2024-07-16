@@ -107,3 +107,42 @@ function displayTotals() {
   displayTotalAmount.innerHTML = totalAmountFromLS;
 }
 displayTotals();
+
+function displayItems() {
+  const displayAll = document.getElementById("display");
+  // displayAll.innerHTML = "";
+  const itemsFromLocalStorage = JSON.parse(localStorage.getItem("items")) || [];
+  itemsFromLocalStorage.forEach((items) => {
+    if (items.Button === "income") {
+      displayAll.innerHTML += `<div class="flex justify-between items-center bg-gradient-to-r from-lime-500 to-lime-400 p-3 rounded-md mt-2 text-white font-sans text-lg">
+      <div>
+        <i
+          class="fa fa-arrow-down bg-white text-green-500 p-2 rounded-full w-8 text-center bg-opacity-50 font-bold"
+          aria-hidden="true"
+        ></i>
+        ${items.Title}
+      </div>
+      <div class="flex flex-col">
+        <div>${items.Amount}</div>
+        <div class="text-gray-500 font-light">Today</div>
+
+      </div>
+    </div>`;
+    } else {
+      displayAll.innerHTML += `<div class="flex justify-between items-center bg-gradient-to-r from-red-400 to-red-300 p-3 rounded-md mt-2 font-sans text-white text-lg">
+      <div>
+        <i
+          class="fa fa-arrow-up bg-white text-red-600 p-2 rounded-full w-8 text-center bg-opacity-50 font-bold"
+          aria-hidden="true"
+        ></i>
+        ${items.Title}
+      </div>
+      <div class="flex flex-col">
+        <div>${items.Amount}</div>
+        <div class="text-gray-500 font-light">Today</div>
+      </div>
+    </div>`;
+    }
+  });
+}
+displayItems();
