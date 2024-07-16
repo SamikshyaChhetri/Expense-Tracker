@@ -25,14 +25,19 @@ setInterval(() => {
 const arr = [];
 const addItem = document.getElementById("addItem");
 const addItembtn = document.getElementById("addItemBtn");
+const cancelIcon = document.getElementById("cancel");
 
 // Control add item modal
 addItembtn.addEventListener("click", () => {
   addItem.classList.replace("-top-96", "top-[3.5em]");
+  cancelIcon.classList.replace("hidden", "flex");
+});
+cancelIcon.addEventListener("click", () => {
+  cancelIcon.classList.replace("flex", "hidden");
+  addItem.classList.replace("top-[3.5em]", "-top-96");
 });
 
 const add = document.getElementById("add");
-
 // Add an item
 add.addEventListener("click", () => {
   addItem.classList.replace("top-[3.5em]", "-top-96");
