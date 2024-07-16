@@ -82,7 +82,6 @@ add.addEventListener("click", () => {
     calculateTotal();
   }
 });
-
 //function to calculate total amounts
 function calculateTotal() {
   let totalAmt = 0.0;
