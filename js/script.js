@@ -1,9 +1,13 @@
 const username = document.getElementById("UserName");
 const usernamefromlocalstorage = localStorage.getItem("Name");
 username.innerHTML = usernamefromlocalstorage + "!";
+
+// Check if logged in
 if (username.innerHTML == "null!") {
   window.location.href = "login.html";
 }
+
+// To check morinming/evening
 setInterval(() => {
   const element = document.getElementById("time");
   let curr_date = new Date();
@@ -17,64 +21,89 @@ setInterval(() => {
     element.innerHTML = "Good Morning";
   }
 }, 1000);
+
 const arr = [];
 const addItem = document.getElementById("addItem");
 const addItembtn = document.getElementById("addItemBtn");
+
+// Control add item modal
 addItembtn.addEventListener("click", () => {
   addItem.classList.replace("-top-96", "top-[3.5em]");
 });
+
 const add = document.getElementById("add");
+
+// Add an item
 add.addEventListener("click", () => {
   addItem.classList.replace("top-[3.5em]", "-top-96");
   const titleName = document.getElementById("title").value;
   const amount = document.getElementById("amount").value;
   const radioButtonType = document.getElementById("income");
   let buttonType;
+
+  // if income button is selected
   if (radioButtonType.checked) {
     buttonType = "income";
-    localStorage.setItem("IncomeAmount", amount);
+    // localStorage.setItem("IncomeAmount", amount);
   } else {
     buttonType = "Expense";
-    localStorage.setItem("ExpenseAmount", amount);
+    // localStorage.setItem("ExpenseAmount", amount);
   }
-  console.log(radioButtonType.checked);
+  // console.log(radioButtonType.checked);
+  // Define the item
   const item = {
     Title: titleName,
     Amount: amount,
     Button: buttonType,
   };
-  window.location.reload();
-  const arrayfromLocalstorage = JSON.parse(localStorage.getItem("items"));
-  if (!arrayfromLocalstorage) {
-    arr.push(item);
-    calculateTotal();
-    localStorage.setItem("items", JSON.stringify(arr));
-  } else {
-    arrayfromLocalstorage.push(item);
-    localStorage.setItem("items", JSON.stringify(arrayfromLocalstorage));
-    calculateTotal();
-  }
-  function calculateTotal() {
-    let totalAmt = 0.0;
+  // Get the previous items stored in local storage, if doesnot exists set fallback to empty array
+  const arrayfromLocalstorage = JSON.parse(localStorage.getItem("items")) || []; // bujhheu ki naai kei ta vana
 
-    const itemsFromLocalStorage =
-      JSON.parse(localStorage.getItem("items")) || [];
-    itemsFromLocalStorage.forEach((element) => {
-      if (element.Button === "income") {
-        // const incomeAmount = document.getElementById("incomeAmount");
-        // incomeAmount += parseFloat(element.Amount);
-        totalAmt += parseFloat(element.Amount);
-      } else {
-        totalAmt -= parseFloat(element.Amount);
-      }
-    });
+  // Push tghe current item to the array
+  arrayfromLocalstorage.push(item);
 
-    localStorage.setItem("totalAmount", totalAmt);
-  }
+  // replace the old items by new array in local storage
+  localStorage.setItem("items", JSON.stringify(arrayfromLocalstorage));
+
+  // Calculate the total amounts
   calculateTotal();
 });
 
-const displayTotal = document.getElementById("Tamount");
-const amountFromLS = localStorage.getItem("totalAmount");
-// console.log(amountFromLS);
-displayTotal.innerHTML = amountFromLS;
+//function to calculate total amounts
+function calculateTotal() {
+  let totalAmt = 0.0;
+  let totalIncomes = 0.0;
+  let totalExpenses = 0.0;
+  const itemsFromLocalStorage = JSON.parse(localStorage.getItem("items")) || 0; //[] also valid
+  itemsFromLocalStorage.forEach((element) => {
+    if (element.Button === "income") {
+      totalIncomes += parseFloat(element.Amount);
+    } else {
+      totalExpenses += parseFloat(element.Amount);
+    }
+  });
+  totalAmt = totalIncomes - totalExpenses;
+  localStorage.setItem("totalAmount", totalAmt);
+  localStorage.setItem("totalIncome", totalIncomes);
+  localStorage.setItem("totalExpense", totalExpenses);
+  displayTotals();
+}
+calculateTotal;
+
+function displayTotals() {
+  const totalIncomeFromLS =
+    parseFloat(localStorage.getItem("totalIncome")) || 0;
+  const totalExpensesFromLS =
+    parseFloat(localStorage.getItem("totalExpense")) || 0;
+  const totalAmountFromLS =
+    parseFloat(localStorage.getItem("totalAmount")) || 0;
+
+  const displayTotalIncome = document.getElementById("incomeAmount");
+  const displayTotalExpenses = document.getElementById("expenseAmount");
+  const displayTotalAmount = document.getElementById("Tamount");
+
+  displayTotalIncome.innerHTML = totalIncomeFromLS;
+  displayTotalExpenses.innerHTML = totalExpensesFromLS;
+  displayTotalAmount.innerHTML = totalAmountFromLS;
+}
+displayTotals();
