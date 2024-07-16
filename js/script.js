@@ -38,7 +38,8 @@ add.addEventListener("click", () => {
   addItem.classList.replace("top-[3.5em]", "-top-96");
   const titleName = document.getElementById("title").value;
   const amount = document.getElementById("amount").value;
-  const radioButtonType = document.getElementById("income");
+  const radioButtonIncome = document.getElementById("income");
+  const radioButtonExpense = document.getElementById("expense");
   const current = document.getElementById("addDate");
   let currentDate = new Date();
   let curr_year = currentDate.getFullYear();
@@ -49,15 +50,17 @@ add.addEventListener("click", () => {
   let buttonType;
 
   // if income button is selected
-  if (radioButtonType.checked) {
+  if (radioButtonIncome.checked) {
     buttonType = "income";
     // localStorage.setItem("IncomeAmount", amount);
-  } else {
+  } else if (radioButtonExpense.checked) {
     buttonType = "Expense";
     // localStorage.setItem("ExpenseAmount", amount);
+  } else {
+    alert("Select income or expenses");
   }
   // console.log(radioButtonType.checked);
-  if (!titleName || !amount || !radioButtonType) {
+  if (!titleName || !amount) {
     alert("Cannot proceed with empty input fields.");
     return;
   } else {
@@ -119,6 +122,7 @@ function displayTotals() {
   displayTotalAmount.innerHTML = totalAmountFromLS;
   displayItems();
 }
+displayTotals();
 function displayItems() {
   const displayAll = document.getElementById("display");
   displayAll.innerHTML = "";
