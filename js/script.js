@@ -39,6 +39,13 @@ add.addEventListener("click", () => {
   const titleName = document.getElementById("title").value;
   const amount = document.getElementById("amount").value;
   const radioButtonType = document.getElementById("income");
+  const current = document.getElementById("addDate");
+  let currentDate = new Date();
+  let curr_year = currentDate.getFullYear();
+  let curr_month = currentDate.getMonth();
+  let curr_day = currentDate.getDay();
+  const fullDate = curr_year + ":" + curr_month + ":" + curr_day;
+  console.log(curr_year);
   let buttonType;
 
   // if income button is selected
@@ -55,9 +62,10 @@ add.addEventListener("click", () => {
     Title: titleName,
     Amount: amount,
     Button: buttonType,
+    Date: fullDate,
   };
   // Get the previous items stored in local storage, if doesnot exists set fallback to empty array
-  const arrayfromLocalstorage = JSON.parse(localStorage.getItem("items")) || []; // bujhheu ki naai kei ta vana
+  const arrayfromLocalstorage = JSON.parse(localStorage.getItem("items")) || [];
 
   // Push tghe current item to the array
   arrayfromLocalstorage.push(item);
@@ -88,7 +96,6 @@ function calculateTotal() {
   localStorage.setItem("totalExpense", totalExpenses);
   displayTotals();
 }
-calculateTotal;
 
 function displayTotals() {
   const totalIncomeFromLS =
@@ -105,13 +112,12 @@ function displayTotals() {
   displayTotalIncome.innerHTML = totalIncomeFromLS;
   displayTotalExpenses.innerHTML = totalExpensesFromLS;
   displayTotalAmount.innerHTML = totalAmountFromLS;
+  displayItems();
 }
-displayTotals();
-
 function displayItems() {
   const displayAll = document.getElementById("display");
-  // displayAll.innerHTML = "";
-  const itemsFromLocalStorage = JSON.parse(localStorage.getItem("items")) || [];
+  displayAll.innerHTML = "";
+  const itemsFromLocalStorage = JSON.parse(localStorage.getItem("items"));
   itemsFromLocalStorage.forEach((items) => {
     if (items.Button === "income") {
       displayAll.innerHTML += `<div class="flex justify-between items-center bg-gradient-to-r from-lime-500 to-lime-400 p-3 rounded-md mt-2 text-white font-sans text-lg">
@@ -119,12 +125,12 @@ function displayItems() {
         <i
           class="fa fa-arrow-down bg-white text-green-500 p-2 rounded-full w-8 text-center bg-opacity-50 font-bold"
           aria-hidden="true"
-        ></i>
+        ></i>   
         ${items.Title}
       </div>
       <div class="flex flex-col">
         <div>${items.Amount}</div>
-        <div class="text-gray-500 font-light">Today</div>
+        <div class="text-gray-500 font-normal text-sm">${items.Date}</div>
 
       </div>
     </div>`;
@@ -139,7 +145,7 @@ function displayItems() {
       </div>
       <div class="flex flex-col">
         <div>${items.Amount}</div>
-        <div class="text-gray-500 font-light">Today</div>
+        <div class="text-gray-500 font-normal text-sm">${items.Date}</div>
       </div>
     </div>`;
     }
