@@ -50,8 +50,8 @@ add.addEventListener("click", () => {
   let currentDate = new Date();
   let curr_year = currentDate.getFullYear();
   let curr_month = currentDate.getMonth();
-  let curr_day = currentDate.getDay();
-  const fullDate = curr_year + ":" + curr_month + ":" + curr_day;
+  let curr_date = currentDate.getDate();
+  const fullDate = curr_year + ":" + curr_month + ":" + curr_date;
   console.log(curr_year);
   let buttonType;
 
@@ -119,11 +119,9 @@ function displayTotals() {
     parseFloat(localStorage.getItem("totalExpense")) || 0;
   const totalAmountFromLS =
     parseFloat(localStorage.getItem("totalAmount")) || 0;
-
   const displayTotalIncome = document.getElementById("incomeAmount");
   const displayTotalExpenses = document.getElementById("expenseAmount");
   const displayTotalAmount = document.getElementById("Tamount");
-
   displayTotalIncome.innerHTML = totalIncomeFromLS;
   displayTotalExpenses.innerHTML = totalExpensesFromLS;
   displayTotalAmount.innerHTML = totalAmountFromLS;
