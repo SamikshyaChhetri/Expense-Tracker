@@ -36,7 +36,6 @@ cancelIcon.addEventListener("click", () => {
   addItem.classList.replace("top-[3.5em]", "-top-96");
   location.reload();
 });
-
 const add = document.getElementById("add");
 // Add an item
 add.addEventListener("click", () => {
