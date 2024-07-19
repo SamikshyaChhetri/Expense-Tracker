@@ -6,7 +6,6 @@ username.innerHTML = usernamefromlocalstorage + "!";
 if (username.innerHTML == "null!") {
   window.location.href = "login.html";
 }
-
 // To check morinming/evening
 setInterval(() => {
   const element = document.getElementById("time");
@@ -90,6 +89,7 @@ add.addEventListener("click", () => {
 
     // Calculate the total amounts
     calculateTotal();
+    location.reload();
   }
 });
 //function to calculate total amounts
